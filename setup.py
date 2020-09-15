@@ -14,30 +14,37 @@ LICENSE = 'BSD License'
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md'), encoding='utf-8').read()
 
-VERSION = '0.0.5'
+VERSION = '0.0.7'
 
 install_requires = [
     'ipython>=1.0',
     'qgrid',
-    'impyla==0.13.8',
+    'impyla>=0.13.8',
     'hdfs3',
-    'teradata==15.10.0.20',
-    'protobuf==3.5.2.post1',
+    'teradata>=15.10.0.20',
+    'protobuf>=3.5.2.post1',
     'sqlparse',
-    'pyhive==0.2.1',
-    'pysftp==0.2.9',
+    'pyhive>=0.2.1',
+    'pysftp>=0.2.9',
     'prettytable',
-    'ipython-sql==0.3.8',
+    'ipython-sql>=0.3.8',
     'requests',
     'astor',
-    'pandas==0.22.0',
+    'pandas>=0.22.0',
     'autovizwidget',
-    'thrift-sasl==0.2.1',
-    'apache-airflow==1.8.2',
+    'thrift-sasl>=0.2.1',
+    'apache-airflow>=1.8.2',
     'nbdime',
     'gitpython',
     'mysql-connector-python-rf'
 ]
+
+package_data = {
+    NAME: [
+        'scheduler/static/*.*',
+        'scheduler/template/*.*',
+    ]
+}
 
 setup(name=NAME,
       version=VERSION,
@@ -49,6 +56,7 @@ setup(name=NAME,
       download_url=DOWNLOAD_URL,
       license=LICENSE,
       packages=find_packages(),
+      include_package_data=True,
       classifiers=[
           'Intended Audience :: System Administrators',
           'Intended Audience :: Science/Research',
